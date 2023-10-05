@@ -6,13 +6,18 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float runSpeed = 7f;
+    private SpriteRenderer sprite;
+    private float dirX = 0f;
     private Rigidbody2D rb;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         /// Bye Bye
         rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,8 +30,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Run()
     {
-        float dirX = Input.GetAxisRaw("Horizontal");
+        dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * runSpeed, rb.velocity.y);
+
+        UpdateAnimationUpdate();
+        
     }
 
     private void Jump()
@@ -34,6 +42,29 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+    }
+
+    private void UpdateAnimationUpdate()
+    {
+        // running right
+        if (dirX > 0f)
+        {
+            anim.SetBool("isRunning", true);
+            sprite.flipX = false;
+        }
+
+        //running left
+        else if (dirX < 0f)
+        {
+            anim.SetBool("isRunning", true);
+            sprite.flipX = true;
+        }
+
+        // standing still
+        else
+        {
+            anim.SetBool("isRunning", false);
         }
     }
 
