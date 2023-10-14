@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
 
+    private enum MovementState{running, jumping, falling, idle}
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,25 +50,38 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateAnimationUpdate()
     {
+        MovementState state;
+
         // running right
         if (dirX > 0f)
         {
-            anim.SetBool("isRunning", true);
+            state = MovementState.running;
             sprite.flipX = false;
         }
 
         //running left
         else if (dirX < 0f)
         {
-            anim.SetBool("isRunning", true);
+            state = MovementState.running;
             sprite.flipX = true;
         }
 
         // standing still
         else
         {
-            anim.SetBool("isRunning", false);
+            state = MovementState.idle;
         }
+
+        if(rb.velocity.y > 0.1f)
+        {
+            state = MovementState.jumping;
+        }
+        else if(rb.velocity.y < -0.1f)
+        {
+            state = MovementState.falling;
+        }
+
+        anim.SetInteger("movementState", (int)state);
     }
 
     
