@@ -8,14 +8,11 @@ public class Exit_Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
-
     public void QuitGame()
     {
         UnityEngine.Application.Quit();
         Debug.Log("Quitting");
-
     }
 	public void ChangeScene()
 	{
