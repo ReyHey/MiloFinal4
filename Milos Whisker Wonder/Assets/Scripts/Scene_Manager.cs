@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Exit_Game : MonoBehaviour
 {
@@ -10,15 +11,18 @@ public class Exit_Game : MonoBehaviour
         
     }
 
-    void QuitGame()
+    public void QuitGame()
     {
         UnityEngine.Application.Quit();
         Debug.Log("Quitting");
 
     }
-
-    // Update is called once per frame
-    void Update()
+	public void ChangeScene()
+	{
+		SceneManager.LoadScene("SampleScene");
+	}
+	// Update is called once per frame
+	void Update()
     {
         
     }
