@@ -9,45 +9,37 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private float dirX = 0f;
     private Rigidbody2D rb;
+    private BoxCollider2D coll;
     private Animator anim;
+    [SerializeField] private LayerMask jumpableGround;
 
     private enum MovementState{running, jumping, falling, idle}
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         /// Bye Bye
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        Run();
-        Jump();
-  
-    }
-
-    private void Run()
+    private void Update()
     {
         dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * runSpeed, rb.velocity.y);
-
-        UpdateAnimationUpdate();
-        
-    }
-
-    private void Jump()
-    {
-        if (Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
-    }
 
+        UpdateAnimationUpdate();
+          
+    }
+ 
     private void UpdateAnimationUpdate()
     {
         MovementState state;
@@ -84,5 +76,9 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("movementState", (int)state);
     }
 
+    private bool IsGrounded() //checks to see if the player is standing on the ground
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround); 
+    }
     
 }
