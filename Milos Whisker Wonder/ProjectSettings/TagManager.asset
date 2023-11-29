@@ -43,9 +43,6 @@ TagManager:
   - name: Background
     uniqueID: 1841798869
     locked: 0
-  - name: Scenery
-    uniqueID: 1913992191
-    locked: 0
   - name: Terrain
     uniqueID: 68603917
     locked: 0
