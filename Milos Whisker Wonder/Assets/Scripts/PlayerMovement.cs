@@ -163,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.jumping;
         }
-        else if(rb.velocity.y < -0.1f && IsGrounded())
+        else if(rb.velocity.y < -0.1f && !IsGrounded())
         {
             state = MovementState.falling;
         }
