@@ -1483,7 +1483,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075579437}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1539,6 +1539,7 @@ MonoBehaviour:
   jumpForce: 14
   runSpeed: 6
   slopeCheckDistance: 0.5
+  rotationSpeed: 10
 --- !u!95 &1075579443
 Animator:
   serializedVersion: 5
@@ -1580,7 +1581,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075579437}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
