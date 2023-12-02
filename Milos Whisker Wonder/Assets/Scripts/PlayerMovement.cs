@@ -159,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.idle;
         }
 
-        if(rb.velocity.y > 0.1f)
+        if(rb.velocity.y > 0.1f && !IsGrounded())
         {
             state = MovementState.jumping;
         }
