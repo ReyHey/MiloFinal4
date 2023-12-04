@@ -15,6 +15,7 @@ public class PopUpSystem : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        //PopUpBox
     }
 
    /* private void OnTriggerEnter2D(Collider2D collision)
@@ -29,7 +30,7 @@ public class PopUpSystem : MonoBehaviour
     public void Pop(string text)
     {
         PopUpBox.SetActive(true);
-        PopUpText.text = text;
+        //PopUpText.text = text;
         anim.SetTrigger("sign");
 
     }
