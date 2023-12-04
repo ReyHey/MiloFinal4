@@ -7,6 +7,7 @@ TagManager:
   - Strawberry
   - Fish
   - Trap
+  - Weak Point
   layers:
   - Default
   - TransparentFX

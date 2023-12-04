@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
+    
     public GameObject pointA;
     public GameObject pointB;
     private Rigidbody2D rb;
     private Animator anim;
     private Transform currentPoint;
     [SerializeField] float speed = 2;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -19,13 +21,15 @@ public class EnemyPatrol : MonoBehaviour
         anim = GetComponent<Animator>();
         currentPoint = pointB.transform;
         anim.SetBool("isPatrolling", true);
+       
 
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         Vector2 point = currentPoint.position - transform.position;
         if (currentPoint == pointB.transform)
         {
@@ -46,6 +50,9 @@ public class EnemyPatrol : MonoBehaviour
             flip();
             currentPoint = pointB.transform;
         }
+      
+      
+        
     }
 
     private void flip()
