@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PopUpSystem : MonoBehaviour
 {
-    public GameObject popUpBox;
+    public GameObject PopUpBox;
     private Rigidbody2D rb;
     public Animator anim;
     public TMP_Text popUpText;
@@ -25,10 +25,11 @@ public class PopUpSystem : MonoBehaviour
         }
     }
    */
+
     public void Pop(string text)
     {
-        popUpBox.SetActive(true);
-        popUpText.text = text;
+        PopUpBox.SetActive(true);
+        PopUpText.text = text;
         anim.SetTrigger("sign");
 
     }
