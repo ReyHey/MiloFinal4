@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PopUpSystem : MonoBehaviour
 {
@@ -16,38 +17,19 @@ public class PopUpSystem : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+   /* private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Sign"))
         {
-            Pop();
+            Pop("meow");
         }
     }
-
-    private void Pop()
-    {
-        Debug.LogWarning("sign");
-    }
-}
-/*
-     private void Start()
-    {
-        anim = GetComponent<Animator>();
-        rb = GetComponent<RigidBody2D>();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision))
-    {
-        if (collision.gameObject.CompareTag("Sign"))
-            Pop();
-
+   */
     public void Pop(string text)
     {
-      
         popUpBox.SetActive(true);
         popUpText.text = text;
-        anim.SetTrigger("pop");
-        
-Debug.Log("sign");
+        anim.SetTrigger("sign");
+
     }
- */
+}

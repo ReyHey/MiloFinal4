@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private Vector2 newVelocity;
     private float slopeSideAngle;
+    public string popUp = "test";
 
     private Animator anim;
     [SerializeField] private LayerMask jumpableGround;
@@ -70,6 +71,11 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = newVelocity;
         }
 
+        /*if()
+        {
+            PopUpSystem pop = GameObject
+        }
+        */
     }
 
     private void SlopeCheck()
@@ -171,14 +177,44 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("movementState", (int)state);
     }
 
-
-  
-
-
     //checks to see if the player is standing on the ground
     private bool IsGrounded() 
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround); 
     }
     
+    /*private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Sign"))
+        {
+            //Debug.LogWarning("sign");
+            PopUpSystem pop = GameObject.FindGameObjectWithTag("Player").GetComponent<PopUpSystem>();
+            pop.Pop(popUp);
+        }
+    }*/
+
+    //chatGPT code
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Sign"))
+        {
+            anim.Play("Player_Death");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Sign"))
+        {
+            anim.Play("close");
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Sign"))
+        {
+            anim.Play("idle");
+        }
+    }
 }
