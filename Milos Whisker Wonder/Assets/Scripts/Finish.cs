@@ -8,6 +8,8 @@ public class Finish : MonoBehaviour
 
     private AudioSource finishSound;
 
+    private bool completed = false;
+
     void Start()
     {
         finishSound = GetComponent<AudioSource>();
@@ -15,9 +17,10 @@ public class Finish : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Player")
+        if(collision.gameObject.name == "Player" && !completed)
         {
             finishSound.Play();
+            completed = true;
             Invoke("CompleteLevel", 2f);
         }
 
