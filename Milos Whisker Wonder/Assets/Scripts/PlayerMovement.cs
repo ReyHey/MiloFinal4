@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
+
     private SpriteRenderer sprite;
     private float dirX = 0f;
 
     // Component References
     private Rigidbody2D rb;
-    private BoxCollider2D coll;
-    //private CapsuleCollider2D coll;
+    //private BoxCollider2D coll;
+    private CapsuleCollider2D coll;
 
     private Vector2 colliderSize;
     private float slopeDownAngle;
@@ -21,17 +21,16 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private Vector2 newVelocity;
     private float slopeSideAngle;
+    public string popUp = "test";
 
     private Animator anim;
     [SerializeField] private LayerMask jumpableGround;
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float runSpeed = 7f;
     [SerializeField] float slopeCheckDistance;
-	[SerializeField] private float rotationSpeed = 10f;
 
 
-
-	private enum MovementState{running, jumping, falling, idle}
+    private enum MovementState { running, jumping, falling, idle }
 
 
     // Start is called before the first frame update
@@ -39,67 +38,56 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-        coll = GetComponent<BoxCollider2D>();
-        //coll = GetComponent<CapsuleCollider2D>();
+        //coll = GetComponent<BoxCollider2D>();
+        coll = GetComponent<CapsuleCollider2D>();
         colliderSize = coll.size;
         anim = GetComponent<Animator>();
     }
 
-	// Update is called once per frame
-	private void Update()
-	{
-		Jump();
-		UpdateAnimationUpdate();
-		SlopeCheck();
+    // Update is called once per frame
+    private void Update()
+    {
 
-		float slopeRotation = isOnSlope ? -slopeSideAngle : 0f;
-		float smoothRotation = Mathf.LerpAngle(transform.rotation.eulerAngles.z, slopeRotation, Time.deltaTime * 10f);
-		transform.rotation = Quaternion.Euler(0, 0, smoothRotation);
+        Jump();
+        UpdateAnimationUpdate();
+        SlopeCheck();
 
-		if (isGrounded && !isOnSlope)
-		{
-			newVelocity.Set(runSpeed * dirX, 0.0f);
-			rb.velocity = newVelocity;
-		}
-		else if (isGrounded && isOnSlope)
-		{
-			float slopeVelocityX = Mathf.Cos(slopeDownAngle * Mathf.Deg2Rad) * runSpeed * dirX;
-			float slopeVelocityY = Mathf.Sin(slopeDownAngle * Mathf.Deg2Rad) * runSpeed * dirX;
+        if (isGrounded && !isOnSlope)
+        {
+            newVelocity.Set(runSpeed * dirX, 0.0f);
+            rb.velocity = newVelocity;
+        }
 
-			Vector2 slopeMovement = new Vector2(slopeVelocityX, slopeVelocityY);
-			RaycastHit2D hit = Physics2D.Raycast(rb.position, slopeMovement.normalized, slopeMovement.magnitude * Time.deltaTime, jumpableGround);
-
-			if (hit.collider == null)
-			{
-				// No obstacle in the way, move the character
-				newVelocity.Set(slopeVelocityX, slopeVelocityY);
-				rb.velocity = newVelocity;
-			}
-		}
-		else if (!isGrounded)
-		{
-			newVelocity.Set(runSpeed * dirX, rb.velocity.y);
-			rb.velocity = newVelocity;
-		}
-	}
-
-	private void SlopeCheck()
-	{
-		Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
-
-		SlopCheckVertical(checkPos);
-		SlopCheckHorizontal(checkPos);
-
-		// Calculate the target rotation based on the slope normal
-		Quaternion targetRotation = isOnSlope ? Quaternion.FromToRotation(Vector3.up, slopNormalPerp) : Quaternion.identity;
-
-		// Smoothly interpolate between the current rotation and the target rotation
-		transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-	}
+        else if (isGrounded && isOnSlope)
+        {
+            newVelocity.Set(runSpeed * slopNormalPerp.x * -dirX, runSpeed * slopNormalPerp.y * -dirX);
+            rb.velocity = newVelocity;
+        }
 
 
+        else if (!isGrounded)
+        {
+            newVelocity.Set(runSpeed * dirX, rb.velocity.y);
+            rb.velocity = newVelocity;
+        }
 
-	private void SlopCheckHorizontal(Vector2 checkPos)
+        /*if()
+        {
+            PopUpSystem pop = GameObject
+        }
+        */
+    }
+
+    private void SlopeCheck()
+    {
+        Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
+
+        SlopCheckVertical(checkPos);
+        SlopCheckHorizontal(checkPos);
+
+    }
+
+    private void SlopCheckHorizontal(Vector2 checkPos)
     {
         RaycastHit2D slopeHitFront = Physics2D.Raycast(checkPos, transform.right, slopeCheckDistance, jumpableGround);
         RaycastHit2D slopeHitBack = Physics2D.Raycast(checkPos, -transform.right, slopeCheckDistance, jumpableGround);
@@ -177,11 +165,11 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.idle;
         }
 
-        if(rb.velocity.y > 0.1f && !IsGrounded())
+        if (rb.velocity.y > 0.1f && !IsGrounded())
         {
             state = MovementState.jumping;
         }
-        else if(rb.velocity.y < -0.1f && !IsGrounded())
+        else if (rb.velocity.y < -0.1f && !IsGrounded())
         {
             state = MovementState.falling;
         }
@@ -189,14 +177,11 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("movementState", (int)state);
     }
 
-
-  
-
-
     //checks to see if the player is standing on the ground
-    private bool IsGrounded() 
+    private bool IsGrounded()
     {
-        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround); 
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
+
     
 }

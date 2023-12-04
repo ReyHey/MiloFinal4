@@ -1,28 +1,7 @@
 fileFormatVersion: 2
-guid: 99e1beacf34e67c42afd2d344aefcc3c
+guid: 12ff3d42987aa467f91467d67262f86c
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -4241635684806205602
-    second: Desappearing (96x96)_0
-  - first:
-      213: 5641638529897069760
-    second: Desappearing (96x96)_1
-  - first:
-      213: 203894707262023572
-    second: Desappearing (96x96)_2
-  - first:
-      213: -2011412612036983366
-    second: Desappearing (96x96)_3
-  - first:
-      213: 2053719668135419293
-    second: Desappearing (96x96)_4
-  - first:
-      213: -6415160527855421042
-    second: Desappearing (96x96)_5
-  - first:
-      213: -8265649554163657122
-    second: Desappearing (96x96)_6
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -84,25 +63,12 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -119,7 +85,20 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -132,7 +111,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -144,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Desappearing (96x96)_0
+      name: portal_inactive_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14d356bb49034e04580c4faca11c1028
-      internalID: -4241635684806205602
+      spriteID: ed3616fc7c0e4451d9ffbf1d1bd0daab
+      internalID: 2088410849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Desappearing (96x96)_1
+      name: portal_inactive_1
       rect:
         serializedVersion: 2
-        x: 96
+        x: 32
         y: 0
-        width: 96
-        height: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4662b1ef958441940aa2141a14e824c7
-      internalID: 5641638529897069760
+      spriteID: 099427fe75ada42d8be8d227d2ff2682
+      internalID: 1417982122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Desappearing (96x96)_2
+      name: portal_inactive_2
       rect:
         serializedVersion: 2
-        x: 192
+        x: 64
         y: 0
-        width: 96
-        height: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,92 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 273189e47fac0504fba7f6469576f11d
-      internalID: 203894707262023572
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Desappearing (96x96)_3
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b284d9c3f93a0ab4ca975f798ba93de4
-      internalID: -2011412612036983366
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Desappearing (96x96)_4
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b9be82fa3a7f0ae429dbfec85a3a60a8
-      internalID: 2053719668135419293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Desappearing (96x96)_5
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 0
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bbbf9106c6356d347a8bf649f3192e75
-      internalID: -6415160527855421042
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Desappearing (96x96)_6
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 0
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 427d4e30ec2b14643b4211bd0f3b6483
-      internalID: -8265649554163657122
+      spriteID: 0f70ee36b6775447faa4c4b58e910b3f
+      internalID: 1052764696
       vertices: []
       indices: 
       edges: []
@@ -301,13 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Desappearing (96x96)_0: -4241635684806205602
-      Desappearing (96x96)_1: 5641638529897069760
-      Desappearing (96x96)_2: 203894707262023572
-      Desappearing (96x96)_3: -2011412612036983366
-      Desappearing (96x96)_4: 2053719668135419293
-      Desappearing (96x96)_5: -6415160527855421042
-      Desappearing (96x96)_6: -8265649554163657122
+      portal_inactive_0: 2088410849
+      portal_inactive_1: 1417982122
+      portal_inactive_2: 1052764696
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

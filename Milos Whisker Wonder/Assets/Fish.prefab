@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9220770169221885057}
   - component: {fileID: 304456417404544611}
   - component: {fileID: 7624490578751000916}
+  - component: {fileID: 1243271576322516786}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Fish
@@ -130,3 +131,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8232925, y: 1.1641136}
   m_EdgeRadius: 0
+--- !u!114 &1243271576322516786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284655012946930233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a24328a2ed9480a99bf939ce37cf41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsForFishPickup: 1

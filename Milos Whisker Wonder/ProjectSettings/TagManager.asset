@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Strawberry
   - Fish
+  - Trap
   layers:
   - Default
   - TransparentFX
