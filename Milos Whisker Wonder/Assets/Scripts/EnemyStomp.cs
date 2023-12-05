@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class EnemyStomp : MonoBehaviour
 {
-    public float bounce;
-    public Rigidbody rb2D;
+    [SerializeField] private Rigidbody2D playerRb;
+    [SerializeField] float bounce = 300f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Weak Point"))
+        //Debug.Log("Collision with tag: " + collision.tag);
+        if (collision.GetComponent<PlayerMovement>())
         {
-            Destroy(collision.gameObject);
-            rb2D.velocity = new Vector2(rb2D.velocity.x, bounce);
+            Debug.Log("FLY MILO!");
+            //playerRb.velocity = new Vector2(playerRb.velocity.x, bounce);
+            playerRb.AddForce(Vector2.up * bounce);
         }
         
     }
