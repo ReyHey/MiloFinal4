@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float runSpeed = 7f;
     [SerializeField] float slopeCheckDistance;
+    //[SerializeField] float climbSpeed = 5f;
 
 
     private enum MovementState { running, jumping, falling, idle }
@@ -47,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
+        //ClimbLadder();
         Jump();
         UpdateAnimationUpdate();
         SlopeCheck();
@@ -77,6 +78,12 @@ public class PlayerMovement : MonoBehaviour
         }
         */
     }
+
+    //void ClimbLadder()
+
+    //    if()
+    //    Vector2 climbVelocity = new Vector2(myRigidbody.velocity.x, moveInput.y * climbSpeed);
+    //}
 
     private void SlopeCheck()
     {
