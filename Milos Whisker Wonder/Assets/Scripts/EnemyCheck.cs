@@ -6,12 +6,15 @@ public class EnemyCheck : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D playerRb;
     [SerializeField] float bounce = 1200f;
+    [SerializeField] public AudioSource robotDeathEffect;
     //animator = GetComponent<EnemyPatrol>();
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<EnemyStomp>())
         {
+            
             Debug.Log("BOOM!");
+            robotDeathEffect.Play();
 
             // Get the player's Rigidbody2D component
             Rigidbody2D playerRigidbody = playerRb.GetComponent<Rigidbody2D>();

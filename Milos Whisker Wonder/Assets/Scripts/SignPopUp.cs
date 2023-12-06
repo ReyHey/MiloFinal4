@@ -7,6 +7,7 @@ public class SignPopUp : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     private Animator popUpBoxAnim;
+    [SerializeField] private AudioSource signPopSound;
     //public GameObject PopUpBox;
     //public TMP_Text popUpText;
 
@@ -36,6 +37,7 @@ public class SignPopUp : MonoBehaviour
 
     private void Pop()
     {
+        signPopSound.Play();
         Debug.Log("Pop");
         //anim.SetTrigger("Pop");
         popUpBoxAnim.SetTrigger("Pop");
