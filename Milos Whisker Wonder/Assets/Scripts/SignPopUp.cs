@@ -6,6 +6,7 @@ public class SignPopUp : MonoBehaviour
 {
     private Animator anim;
     private Rigidbody2D rb;
+    private Animator popUpBoxAnim;
     //public GameObject PopUpBox;
     //public TMP_Text popUpText;
 
@@ -13,6 +14,7 @@ public class SignPopUp : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        popUpBoxAnim = GetComponentInChildren<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,13 +37,15 @@ public class SignPopUp : MonoBehaviour
     private void Pop()
     {
         Debug.Log("Pop");
-        anim.SetTrigger("Pop");
+        //anim.SetTrigger("Pop");
+        popUpBoxAnim.SetTrigger("Pop");
     }
 
     private void Close()
     {
         Debug.Log("Close");
-        anim.SetTrigger("Close");
+        //anim.SetTrigger("Close");
+        popUpBoxAnim.SetTrigger("Close");
     }
 
 
