@@ -15,10 +15,10 @@ public class EnemyBullets : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(-1, 0).normalized * force;
         rb.gravityScale = 0f;
-        
-        /*player = GameObject.FindGameObjectWithTag("Player!");
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        /* player = GameObject.FindGameObjectWithTag("Player!");
         Vector3 direction = player.transform.position - transform.position;
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
+        rb.velocity = new Vector2(direction.x, direction.y).normalized force;
         */
     }
 
@@ -28,7 +28,7 @@ public class EnemyBullets : MonoBehaviour
         timer += Time.deltaTime;
 
         //if bullet has been out for 10 seconds, destroy bullet
-        if(timer>5)
+        if (timer > 5)
         {
             Destroy(gameObject);
         }
@@ -36,9 +36,23 @@ public class EnemyBullets : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player!"))
+        if (collision.gameObject.CompareTag("Player!"))
         {
             Destroy(collision.gameObject);
         }
+        else if (collision.gameObject.CompareTag("Trap"))
+        {
+
+        }
+        /*else
+        {
+            DestroyBullet();
+        }
+        */
+    }
+
+    private void DestroyBullet()
+    {
+        Destroy(gameObject);
     }
 }
