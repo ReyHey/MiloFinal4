@@ -8,6 +8,8 @@ TagManager:
   - Fish
   - Trap
   - Weak Point
+  - Ladder
+  - Player!
   layers:
   - Default
   - TransparentFX
