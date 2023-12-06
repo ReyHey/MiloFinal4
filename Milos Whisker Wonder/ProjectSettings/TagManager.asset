@@ -9,6 +9,7 @@ TagManager:
   - Trap
   - Weak Point
   - Ladder
+  - Player!
   layers:
   - Default
   - TransparentFX
