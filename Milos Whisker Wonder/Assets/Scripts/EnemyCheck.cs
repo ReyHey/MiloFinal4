@@ -6,7 +6,7 @@ public class EnemyCheck : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D playerRb;
     [SerializeField] float bounce = 1200f;
-
+    //animator = GetComponent<EnemyPatrol>();
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<EnemyStomp>())

@@ -49,11 +49,11 @@ public class EnemyPatrol : MonoBehaviour
         {
             flip();
             currentPoint = pointB.transform;
+
         }
-      
-      
-        
+   
     }
+
 
     private void flip()
     {
