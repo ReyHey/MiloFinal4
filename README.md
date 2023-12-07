@@ -2,14 +2,12 @@
 Milo's Whisker Wonders is a story game where the player, plays as the cute cat, Milo. Milo's mission is to navigate the levels, but in order to go to the next level, Milo has to collect enough fish for the portal to appear. Milo will keep traversing the levels, whilst trying to collect as many fish as possible on the least amount of time. 
 
 
-
-
 This project has been made in Visual Studio and Unity. The Sprites and the Sprite sheets have all been made in Aseprite. 
 The code has been documented with comments. 
 
 ### Usage
 The game is run on any device that can run a .exe file. 
-The keyboard controls are the commonly used arrow-buttons and the space button for jumping up and down. 
+The keyboard controls are the commonly used arrow-buttons and the space button for jumping up and down. In order to use a ladder you use the up-arrow key to latch on and crawl up the ladder
 Please elobarote this further when the game is delevoped. 
 
 ### Features and innovations
@@ -38,6 +36,5 @@ Please fill out this part before submitting.
 
 ### Acknowledgements
 Thanks to Professor Mehdi Peiravi for his help during this project. He has helped us navigate this project and has guided us through all the different phases in the project, and we could not have made it without him. 
-
 This project is made by Parastoo, Ryan, Brandon and Rey.  
 
