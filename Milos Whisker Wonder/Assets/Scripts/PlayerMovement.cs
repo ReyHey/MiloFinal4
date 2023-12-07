@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
+
     private SpriteRenderer sprite;
     private float dirX = 0f;
 
@@ -21,15 +21,19 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private Vector2 newVelocity;
     private float slopeSideAngle;
+    public string popUp = "test";
 
     private Animator anim;
     [SerializeField] private LayerMask jumpableGround;
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float runSpeed = 7f;
     [SerializeField] float slopeCheckDistance;
-   
+    //[SerializeField] float climbSpeed = 5f;
 
-    private enum MovementState{running, jumping, falling, idle}
+
+    private enum MovementState { running, jumping, falling, idle }
+
+    [SerializeField] private AudioSource jumpSoundEffect;
 
 
     // Start is called before the first frame update
@@ -46,11 +50,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
+        //ClimbLadder();
         Jump();
         UpdateAnimationUpdate();
         SlopeCheck();
-        
+
         if (isGrounded && !isOnSlope)
         {
             newVelocity.Set(runSpeed * dirX, 0.0f);
@@ -63,14 +67,25 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = newVelocity;
         }
 
-        
+
         else if (!isGrounded)
         {
             newVelocity.Set(runSpeed * dirX, rb.velocity.y);
             rb.velocity = newVelocity;
         }
 
+        /*if()
+        {
+            PopUpSystem pop = GameObject
+        }
+        */
     }
+
+    //void ClimbLadder()
+
+    //    if()
+    //    Vector2 climbVelocity = new Vector2(myRigidbody.velocity.x, moveInput.y * climbSpeed);
+    //}
 
     private void SlopeCheck()
     {
@@ -131,6 +146,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(dirX * runSpeed, rb.velocity.y);
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+            jumpSoundEffect.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
@@ -159,11 +175,11 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.idle;
         }
 
-        if(rb.velocity.y > 0.1f)
+        if (rb.velocity.y > 0.1f && !IsGrounded())
         {
             state = MovementState.jumping;
         }
-        else if(rb.velocity.y < -0.1f && IsGrounded())
+        else if (rb.velocity.y < -0.1f && !IsGrounded())
         {
             state = MovementState.falling;
         }
@@ -171,14 +187,11 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("movementState", (int)state);
     }
 
-
-  
-
-
     //checks to see if the player is standing on the ground
-    private bool IsGrounded() 
+    private bool IsGrounded()
     {
-        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround); 
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
+
     
 }

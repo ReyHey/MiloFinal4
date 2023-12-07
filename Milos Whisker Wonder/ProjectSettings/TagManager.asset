@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Strawberry
   - Fish
+  - Trap
+  - Weak Point
+  - Ladder
+  - Player!
   layers:
   - Default
   - TransparentFX
@@ -14,9 +18,9 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
+  - Climbing
+  - Player
+  - Background
   - 
   - 
   - 
@@ -46,8 +50,14 @@ TagManager:
   - name: Scenery
     uniqueID: 1913992191
     locked: 0
+  - name: Scenery Objects
+    uniqueID: 2912929101
+    locked: 0
   - name: Terrain
     uniqueID: 68603917
+    locked: 0
+  - name: Climbing
+    uniqueID: 3482920189
     locked: 0
   - name: Default
     uniqueID: 0
